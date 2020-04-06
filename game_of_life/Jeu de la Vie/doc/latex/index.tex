@@ -1,0 +1,125 @@
+Zapharaos, Matthieu Freitag, T\+P5
+
+Voici ma réalisation du projet du cours de Techniques de Développement \+: « Game of Life »
+
+\doxysubsection*{Compilation avec C\+A\+I\+RO\+:}
+
+\DoxyHorRuler
+
+
+Compiler \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make}
+\end{DoxyCode}
+
+
+Compiler sur Mac OS\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make TYPE=MAC}
+\end{DoxyCode}
+
+
+\doxysubsection*{Compilation sans C\+A\+I\+RO\+:}
+
+\DoxyHorRuler
+
+
+Compiler \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make MODE=TEXTE}
+\end{DoxyCode}
+
+
+\doxysubsection*{Execution \+:}
+
+\DoxyHorRuler
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./bin/main <numero de la grille>}
+\end{DoxyCode}
+
+
+{\bfseries{A\+T\+T\+E\+N\+T\+I\+ON \+:}} numero de la grille = 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8
+
+\doxysubsection*{Documentation \+:}
+
+\DoxyHorRuler
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen}
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make doxy}
+\end{DoxyCode}
+
+
+\doxysubsection*{Archivage \+:}
+
+\DoxyHorRuler
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make dist}
+\end{DoxyCode}
+
+
+\doxysubsection*{Nettoyage \+:}
+
+\DoxyHorRuler
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make clean}
+\end{DoxyCode}
+
+
+\doxysubsection*{Versions \+:}
+
+\DoxyHorRuler
+
+
+Différentes versions disponibles (dans le dossier \+: Niveaux/ )
+\begin{DoxyItemize}
+\item v0 \+: Projet de base
+\item v1.\+0 \+: Niveau 1
+\item v2.\+0 \+: Niveau 2
+\item v3.\+0 \+: Niveau 3
+\item v4.\+0 \+: Niveau 4
+\item v5.\+0 \+: Niveau 5
+\end{DoxyItemize}
+
+\doxysubsection*{Structure \+:}
+
+\DoxyHorRuler
+
+
+Le projet est réparti dans différents dossiers \+:
+\begin{DoxyItemize}
+\item src/ =$>$ Fichiers sources du projet \+: $\ast$.c
+\item include/ =$>$ Headers du projet \+: $\ast$.h
+\item grilles/ =$>$ Fichiers grilles de base \+: grille$\ast$.txt
+\item doc/ =$>$ Documentation doxygen
+\end{DoxyItemize}
+
+\doxysubsection*{Fonctionnement \+:}
+
+\DoxyHorRuler
+
+
+Le jeu comporte ces commandes \+:
+\begin{DoxyItemize}
+\item Entrer =$>$ Faire évoluer la grille
+\item n =$>$ Charge une nouvelle grille à partir d\textquotesingle{}un numéro (1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8)
+\item c =$>$ Activer ou désactiver le comptage cyclique (avec ou sans les bords)
+\item v =$>$ Activer ou désactiver le vieillisement
+\item o =-\/$>$ Tester si la grille est oscillante 
+\end{DoxyItemize}

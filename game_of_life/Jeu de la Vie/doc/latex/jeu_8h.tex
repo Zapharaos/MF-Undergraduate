@@ -1,0 +1,119 @@
+\hypertarget{jeu_8h}{}\doxysection{Référence du fichier include/jeu.h}
+\label{jeu_8h}\index{include/jeu.h@{include/jeu.h}}
+
+
+Fonctions liée aux cellules.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{jeu_8h_a653841e275690f6a0d743c7ac4b1fc25}{modulo}} (int i, int m)
+\begin{DoxyCompactList}\small\item\em Modulo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jeu_8h_a919a35926d94b71717909ecc50233f26}{compte\+\_\+voisins\+\_\+vivants\+\_\+cyclique}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Compte le nombre de voisins vivants de la cellule avec des bords cycliques (i,j) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jeu_8h_a2e8fdd206d197391527920bbbc137eef}{compte\+\_\+voisins\+\_\+vivants\+\_\+non\+\_\+cyclique}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Compte le nombre de voisins vivants de la cellule (i,j) avec des bords non cycliques. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jeu_8h_a5e5f71dea83d401cadf91bb7f9883747}{evolue}} (\mbox{\hyperlink{structgrille}{grille}} $\ast$g, \mbox{\hyperlink{structgrille}{grille}} $\ast$gc, int $\ast$timer, int($\ast$compte\+\_\+voisins\+\_\+vivants)(int, int, \mbox{\hyperlink{structgrille}{grille}}), int aging)
+\begin{DoxyCompactList}\small\item\em Fait évoluer la grille g d\textquotesingle{}un pas de temps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions liée aux cellules. 
+
+\begin{DoxyVersion}{Version}
+5.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31 mars 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{jeu_8h_a919a35926d94b71717909ecc50233f26}\label{jeu_8h_a919a35926d94b71717909ecc50233f26}} 
+\index{jeu.h@{jeu.h}!compte\_voisins\_vivants\_cyclique@{compte\_voisins\_vivants\_cyclique}}
+\index{compte\_voisins\_vivants\_cyclique@{compte\_voisins\_vivants\_cyclique}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{compte\_voisins\_vivants\_cyclique()}{compte\_voisins\_vivants\_cyclique()}}
+{\footnotesize\ttfamily int compte\+\_\+voisins\+\_\+vivants\+\_\+cyclique (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Compte le nombre de voisins vivants de la cellule avec des bords cycliques (i,j) 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em g} & Grille dans laquelle (i,j) et ses voisins \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Nombre de voisins vivants 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jeu_8h_a2e8fdd206d197391527920bbbc137eef}\label{jeu_8h_a2e8fdd206d197391527920bbbc137eef}} 
+\index{jeu.h@{jeu.h}!compte\_voisins\_vivants\_non\_cyclique@{compte\_voisins\_vivants\_non\_cyclique}}
+\index{compte\_voisins\_vivants\_non\_cyclique@{compte\_voisins\_vivants\_non\_cyclique}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{compte\_voisins\_vivants\_non\_cyclique()}{compte\_voisins\_vivants\_non\_cyclique()}}
+{\footnotesize\ttfamily int compte\+\_\+voisins\+\_\+vivants\+\_\+non\+\_\+cyclique (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Compte le nombre de voisins vivants de la cellule (i,j) avec des bords non cycliques. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em g} & Grille dans laquelle (i,j) et ses voisins \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Nombre de voisins vivants 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jeu_8h_a5e5f71dea83d401cadf91bb7f9883747}\label{jeu_8h_a5e5f71dea83d401cadf91bb7f9883747}} 
+\index{jeu.h@{jeu.h}!evolue@{evolue}}
+\index{evolue@{evolue}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{evolue()}{evolue()}}
+{\footnotesize\ttfamily void evolue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{g,  }\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{gc,  }\item[{int $\ast$}]{timer,  }\item[{int($\ast$)(int, int, \mbox{\hyperlink{structgrille}{grille}})}]{compte\+\_\+voisins\+\_\+vivants,  }\item[{int}]{aging }\end{DoxyParamCaption})}
+
+
+
+Fait évoluer la grille g d\textquotesingle{}un pas de temps. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em g} & Pointeur sur la grille à évoluer \\
+\hline
+\mbox{\texttt{ out}}  & {\em gc} & Pointeur sur la grille évoluée \\
+\hline
+\mbox{\texttt{ in}}  & {\em timer} & Nombre d\textquotesingle{}étapes dans l\textquotesingle{}évolution \\
+\hline
+\mbox{\texttt{ in}}  & {\em compte\+\_\+voisins\+\_\+vivants} & Pointeur sur une fonction qui compte les voisants vivants d\textquotesingle{}une cellule en fonction de la demande de l\textquotesingle{}utilisateur (cylique ou non) \\
+\hline
+\mbox{\texttt{ in}}  & {\em aging} & Evolution différent en fonction de si le vieillisement est activé ou désactivé \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{jeu_8h_a653841e275690f6a0d743c7ac4b1fc25}\label{jeu_8h_a653841e275690f6a0d743c7ac4b1fc25}} 
+\index{jeu.h@{jeu.h}!modulo@{modulo}}
+\index{modulo@{modulo}!jeu.h@{jeu.h}}
+\doxysubsubsection{\texorpdfstring{modulo()}{modulo()}}
+{\footnotesize\ttfamily static int modulo (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Modulo. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & 1ere opérande \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & 2eme opérande \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Valeur du modulo 
+\end{DoxyReturn}

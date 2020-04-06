@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet - Game of Life:  Fichier source de include/grille.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet - Game of Life
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">grille.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="grille_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __GRILLE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define __GRILLE_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structgrille.html">   18</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{<span class="keywordtype">int</span> nbl; <span class="keywordtype">int</span> nbc; <span class="keywordtype">int</span>** cellules;} <a class="code" href="structgrille.html">grille</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="grille_8h.html#ae621f51c60aa4fafaa0c9f6c9b5a4036">alloue_grille</a> (<span class="keywordtype">int</span> l, <span class="keywordtype">int</span> c, <a class="code" href="structgrille.html">grille</a>* g);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="grille_8h.html#a7074b2b15576e9d2b3cd15c3a1dc7012">libere_grille</a> (<a class="code" href="structgrille.html">grille</a>* g);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="grille_8h.html#adf5501cc0bbad28f5ffc561d92197e4e">init_grille_from_file</a> (<span class="keywordtype">char</span> * filename, <a class="code" href="structgrille.html">grille</a>* g);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="grille_8h.html#a32d986d81f64f5bf9a58653accac0310">   48</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="grille_8h.html#a32d986d81f64f5bf9a58653accac0310">set_vivante</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="structgrille.html">grille</a> g){g.cellules[i][j] = 1;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="grille_8h.html#a10e7b11f2de74ccf95ad1fcb3671a163">   57</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="grille_8h.html#a10e7b11f2de74ccf95ad1fcb3671a163">set_morte</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="structgrille.html">grille</a> g){g.cellules[i][j] = 0;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="grille_8h.html#a9e6ec43aa272ad177a8b76aa2908bc18">   66</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="grille_8h.html#a9e6ec43aa272ad177a8b76aa2908bc18">set_non_viable</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="structgrille.html">grille</a> g){g.cellules[i][j] = -1;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="grille_8h.html#aac3db82b0f857dc49ccd51628cbc231b">   75</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="grille_8h.html#aac3db82b0f857dc49ccd51628cbc231b">est_vivante</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="structgrille.html">grille</a> g){<span class="keywordflow">return</span> g.cellules[i][j] &gt;= 1;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="grille_8h.html#a6abb75941488a79e824ca42165d1d8e9">   84</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="grille_8h.html#a6abb75941488a79e824ca42165d1d8e9">est_non_viable</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <a class="code" href="structgrille.html">grille</a> g){<span class="keywordflow">return</span> g.cellules[i][j] == -1;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> <a class="code" href="grille_8h.html#a63b3ae16c86b568f6aa8f9ce84128b1e">copie_grille</a> (<a class="code" href="structgrille.html">grille</a> gs, <a class="code" href="structgrille.html">grille</a> gd);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">int</span> <a class="code" href="grille_8h.html#a3c4cd98e96c81bcdd525245d6cc92cd3">egale_grille</a>(<a class="code" href="structgrille.html">grille</a> g, <a class="code" href="structgrille.html">grille</a> g_bis);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">int</span> <a class="code" href="grille_8h.html#a2d61b8d9bac6516500c0157ad4d57c85">grille_vide</a>(<a class="code" href="structgrille.html">grille</a> g);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="agrille_8h_html_a2d61b8d9bac6516500c0157ad4d57c85"><div class="ttname"><a href="grille_8h.html#a2d61b8d9bac6516500c0157ad4d57c85">grille_vide</a></div><div class="ttdeci">int grille_vide(grille g)</div><div class="ttdoc">Test si la grille est vide.</div><div class="ttdef"><b>Definition:</b> grille.c:81</div></div>
+<div class="ttc" id="agrille_8h_html_adf5501cc0bbad28f5ffc561d92197e4e"><div class="ttname"><a href="grille_8h.html#adf5501cc0bbad28f5ffc561d92197e4e">init_grille_from_file</a></div><div class="ttdeci">void init_grille_from_file(char *filename, grille *g)</div><div class="ttdoc">Alloue et initalise la grille &quot;g&quot; à partir d'un fichier &quot;filename&quot;.</div><div class="ttdef"><b>Definition:</b> grille.c:3</div></div>
+<div class="ttc" id="agrille_8h_html_a6abb75941488a79e824ca42165d1d8e9"><div class="ttname"><a href="grille_8h.html#a6abb75941488a79e824ca42165d1d8e9">est_non_viable</a></div><div class="ttdeci">static int est_non_viable(int i, int j, grille g)</div><div class="ttdoc">Teste si la cellule ( i , j ) de la grille g est non viable.</div><div class="ttdef"><b>Definition:</b> grille.h:84</div></div>
+<div class="ttc" id="agrille_8h_html_a3c4cd98e96c81bcdd525245d6cc92cd3"><div class="ttname"><a href="grille_8h.html#a3c4cd98e96c81bcdd525245d6cc92cd3">egale_grille</a></div><div class="ttdeci">int egale_grille(grille g, grille g_bis)</div><div class="ttdoc">Test si les deux grilles sont les mêmes.</div><div class="ttdef"><b>Definition:</b> grille.c:64</div></div>
+<div class="ttc" id="astructgrille_html"><div class="ttname"><a href="structgrille.html">grille</a></div><div class="ttdoc">Création d'une grille de &quot;nbl&quot; lignes et &quot;nbc&quot; colonnes.</div><div class="ttdef"><b>Definition:</b> grille.h:18</div></div>
+<div class="ttc" id="agrille_8h_html_a63b3ae16c86b568f6aa8f9ce84128b1e"><div class="ttname"><a href="grille_8h.html#a63b3ae16c86b568f6aa8f9ce84128b1e">copie_grille</a></div><div class="ttdeci">void copie_grille(grille gs, grille gd)</div><div class="ttdoc">Recopie gs dans gd.</div><div class="ttdef"><b>Definition:</b> grille.c:34</div></div>
+<div class="ttc" id="agrille_8h_html_a9e6ec43aa272ad177a8b76aa2908bc18"><div class="ttname"><a href="grille_8h.html#a9e6ec43aa272ad177a8b76aa2908bc18">set_non_viable</a></div><div class="ttdeci">static void set_non_viable(int i, int j, grille g)</div><div class="ttdoc">Rend la cellule (i,j) de la grille g non viable (= -1)</div><div class="ttdef"><b>Definition:</b> grille.h:66</div></div>
+<div class="ttc" id="agrille_8h_html_a7074b2b15576e9d2b3cd15c3a1dc7012"><div class="ttname"><a href="grille_8h.html#a7074b2b15576e9d2b3cd15c3a1dc7012">libere_grille</a></div><div class="ttdeci">void libere_grille(grille *g)</div><div class="ttdoc">Libère une grille.</div><div class="ttdef"><b>Definition:</b> grille.c:54</div></div>
+<div class="ttc" id="agrille_8h_html_aac3db82b0f857dc49ccd51628cbc231b"><div class="ttname"><a href="grille_8h.html#aac3db82b0f857dc49ccd51628cbc231b">est_vivante</a></div><div class="ttdeci">static int est_vivante(int i, int j, grille g)</div><div class="ttdoc">Teste si la cellule ( i , j ) de la grille g est vivante.</div><div class="ttdef"><b>Definition:</b> grille.h:75</div></div>
+<div class="ttc" id="agrille_8h_html_ae621f51c60aa4fafaa0c9f6c9b5a4036"><div class="ttname"><a href="grille_8h.html#ae621f51c60aa4fafaa0c9f6c9b5a4036">alloue_grille</a></div><div class="ttdeci">void alloue_grille(int l, int c, grille *g)</div><div class="ttdoc">Alloue une grille &quot;g&quot; de taille &quot;L&quot; * &quot;C&quot;, et initialise toutes les cellules à &quot;morte&quot;.</div><div class="ttdef"><b>Definition:</b> grille.c:40</div></div>
+<div class="ttc" id="agrille_8h_html_a10e7b11f2de74ccf95ad1fcb3671a163"><div class="ttname"><a href="grille_8h.html#a10e7b11f2de74ccf95ad1fcb3671a163">set_morte</a></div><div class="ttdeci">static void set_morte(int i, int j, grille g)</div><div class="ttdoc">Rend la cellule ( i , j ) de la grille g morte (=0)</div><div class="ttdef"><b>Definition:</b> grille.h:57</div></div>
+<div class="ttc" id="agrille_8h_html_a32d986d81f64f5bf9a58653accac0310"><div class="ttname"><a href="grille_8h.html#a32d986d81f64f5bf9a58653accac0310">set_vivante</a></div><div class="ttdeci">static void set_vivante(int i, int j, grille g)</div><div class="ttdoc">Rend la cellule ( i , j ) de la grille g vivante (=1)</div><div class="ttdef"><b>Definition:</b> grille.h:48</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

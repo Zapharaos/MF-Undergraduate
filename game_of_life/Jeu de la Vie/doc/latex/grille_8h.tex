@@ -1,0 +1,267 @@
+\hypertarget{grille_8h}{}\doxysection{Référence du fichier include/grille.h}
+\label{grille_8h}\index{include/grille.h@{include/grille.h}}
+
+
+Fonctions liée aux grilles.  
+
+
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgrille}{grille}}
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une grille de \char`\"{}nbl\char`\"{} lignes et \char`\"{}nbc\char`\"{} colonnes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{grille_8h_ae621f51c60aa4fafaa0c9f6c9b5a4036}{alloue\+\_\+grille}} (int l, int c, \mbox{\hyperlink{structgrille}{grille}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Alloue une grille \char`\"{}g\char`\"{} de taille \char`\"{}\+L\char`\"{} $\ast$ \char`\"{}\+C\char`\"{}, et initialise toutes les cellules à \char`\"{}morte\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grille_8h_a7074b2b15576e9d2b3cd15c3a1dc7012}{libere\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Libère une grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grille_8h_adf5501cc0bbad28f5ffc561d92197e4e}{init\+\_\+grille\+\_\+from\+\_\+file}} (char $\ast$filename, \mbox{\hyperlink{structgrille}{grille}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Alloue et initalise la grille \char`\"{}g\char`\"{} à partir d\textquotesingle{}un fichier \char`\"{}filename\char`\"{}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{grille_8h_a32d986d81f64f5bf9a58653accac0310}{set\+\_\+vivante}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Rend la cellule ( i , j ) de la grille g vivante (=1) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{grille_8h_a10e7b11f2de74ccf95ad1fcb3671a163}{set\+\_\+morte}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Rend la cellule ( i , j ) de la grille g morte (=0) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{grille_8h_a9e6ec43aa272ad177a8b76aa2908bc18}{set\+\_\+non\+\_\+viable}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Rend la cellule (i,j) de la grille g non viable (= -\/1) \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{grille_8h_aac3db82b0f857dc49ccd51628cbc231b}{est\+\_\+vivante}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Teste si la cellule ( i , j ) de la grille g est vivante. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{grille_8h_a6abb75941488a79e824ca42165d1d8e9}{est\+\_\+non\+\_\+viable}} (int i, int j, \mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Teste si la cellule ( i , j ) de la grille g est non viable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{grille_8h_a63b3ae16c86b568f6aa8f9ce84128b1e}{copie\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} gs, \mbox{\hyperlink{structgrille}{grille}} gd)
+\begin{DoxyCompactList}\small\item\em Recopie gs dans gd. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{grille_8h_a3c4cd98e96c81bcdd525245d6cc92cd3}{egale\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} g, \mbox{\hyperlink{structgrille}{grille}} g\+\_\+bis)
+\begin{DoxyCompactList}\small\item\em Test si les deux grilles sont les mêmes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{grille_8h_a2d61b8d9bac6516500c0157ad4d57c85}{grille\+\_\+vide}} (\mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Test si la grille est vide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fonctions liée aux grilles. 
+
+\begin{DoxyVersion}{Version}
+5.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31 mars 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{grille_8h_ae621f51c60aa4fafaa0c9f6c9b5a4036}\label{grille_8h_ae621f51c60aa4fafaa0c9f6c9b5a4036}} 
+\index{grille.h@{grille.h}!alloue\_grille@{alloue\_grille}}
+\index{alloue\_grille@{alloue\_grille}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{alloue\_grille()}{alloue\_grille()}}
+{\footnotesize\ttfamily void alloue\+\_\+grille (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{c,  }\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Alloue une grille \char`\"{}g\char`\"{} de taille \char`\"{}\+L\char`\"{} $\ast$ \char`\"{}\+C\char`\"{}, et initialise toutes les cellules à \char`\"{}morte\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em l} & Nombre de lignes à allouer dans la grille \\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & Nombre de colonnes à allouer dans la grille \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Pointeur sur la grille à allouer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{grille_8h_a63b3ae16c86b568f6aa8f9ce84128b1e}\label{grille_8h_a63b3ae16c86b568f6aa8f9ce84128b1e}} 
+\index{grille.h@{grille.h}!copie\_grille@{copie\_grille}}
+\index{copie\_grille@{copie\_grille}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{copie\_grille()}{copie\_grille()}}
+{\footnotesize\ttfamily void copie\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{gs,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{gd }\end{DoxyParamCaption})}
+
+
+
+Recopie gs dans gd. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em gs} & Grille à copier \\
+\hline
+\mbox{\texttt{ in}}  & {\em gd} & Grille contenant la copie \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{grille_8h_a3c4cd98e96c81bcdd525245d6cc92cd3}\label{grille_8h_a3c4cd98e96c81bcdd525245d6cc92cd3}} 
+\index{grille.h@{grille.h}!egale\_grille@{egale\_grille}}
+\index{egale\_grille@{egale\_grille}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{egale\_grille()}{egale\_grille()}}
+{\footnotesize\ttfamily int egale\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g\+\_\+bis }\end{DoxyParamCaption})}
+
+
+
+Test si les deux grilles sont les mêmes. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em g} & Grille 1 à comparer \\
+\hline
+\mbox{\texttt{ in}}  & {\em g\+\_\+bis} & Grille 2 à comparer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si elle sont égales, sinon 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_a6abb75941488a79e824ca42165d1d8e9}\label{grille_8h_a6abb75941488a79e824ca42165d1d8e9}} 
+\index{grille.h@{grille.h}!est\_non\_viable@{est\_non\_viable}}
+\index{est\_non\_viable@{est\_non\_viable}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{est\_non\_viable()}{est\_non\_viable()}}
+{\footnotesize\ttfamily static int est\+\_\+non\+\_\+viable (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Teste si la cellule ( i , j ) de la grille g est non viable. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si non viable, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_aac3db82b0f857dc49ccd51628cbc231b}\label{grille_8h_aac3db82b0f857dc49ccd51628cbc231b}} 
+\index{grille.h@{grille.h}!est\_vivante@{est\_vivante}}
+\index{est\_vivante@{est\_vivante}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{est\_vivante()}{est\_vivante()}}
+{\footnotesize\ttfamily static int est\+\_\+vivante (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Teste si la cellule ( i , j ) de la grille g est vivante. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si vivante, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_a2d61b8d9bac6516500c0157ad4d57c85}\label{grille_8h_a2d61b8d9bac6516500c0157ad4d57c85}} 
+\index{grille.h@{grille.h}!grille\_vide@{grille\_vide}}
+\index{grille\_vide@{grille\_vide}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{grille\_vide()}{grille\_vide()}}
+{\footnotesize\ttfamily int grille\+\_\+vide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Test si la grille est vide. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em g} & Grille à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si elle est vide, sinon 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_adf5501cc0bbad28f5ffc561d92197e4e}\label{grille_8h_adf5501cc0bbad28f5ffc561d92197e4e}} 
+\index{grille.h@{grille.h}!init\_grille\_from\_file@{init\_grille\_from\_file}}
+\index{init\_grille\_from\_file@{init\_grille\_from\_file}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{init\_grille\_from\_file()}{init\_grille\_from\_file()}}
+{\footnotesize\ttfamily void init\+\_\+grille\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Alloue et initalise la grille \char`\"{}g\char`\"{} à partir d\textquotesingle{}un fichier \char`\"{}filename\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em filename} & Nom du fichier où se trouve la grille à initialiser \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Grille à initialiser \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{grille_8h_a7074b2b15576e9d2b3cd15c3a1dc7012}\label{grille_8h_a7074b2b15576e9d2b3cd15c3a1dc7012}} 
+\index{grille.h@{grille.h}!libere\_grille@{libere\_grille}}
+\index{libere\_grille@{libere\_grille}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{libere\_grille()}{libere\_grille()}}
+{\footnotesize\ttfamily void libere\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Libère une grille. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em g} & Pointeur sur la grille à libérer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{grille_8h_a10e7b11f2de74ccf95ad1fcb3671a163}\label{grille_8h_a10e7b11f2de74ccf95ad1fcb3671a163}} 
+\index{grille.h@{grille.h}!set\_morte@{set\_morte}}
+\index{set\_morte@{set\_morte}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{set\_morte()}{set\_morte()}}
+{\footnotesize\ttfamily static void set\+\_\+morte (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Rend la cellule ( i , j ) de la grille g morte (=0) 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+g \mbox{[} i \mbox{]}\mbox{[} j \mbox{]} = 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_a9e6ec43aa272ad177a8b76aa2908bc18}\label{grille_8h_a9e6ec43aa272ad177a8b76aa2908bc18}} 
+\index{grille.h@{grille.h}!set\_non\_viable@{set\_non\_viable}}
+\index{set\_non\_viable@{set\_non\_viable}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{set\_non\_viable()}{set\_non\_viable()}}
+{\footnotesize\ttfamily static void set\+\_\+non\+\_\+viable (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Rend la cellule (i,j) de la grille g non viable (= -\/1) 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+g \mbox{[} i \mbox{]}\mbox{[} j \mbox{]} = -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{grille_8h_a32d986d81f64f5bf9a58653accac0310}\label{grille_8h_a32d986d81f64f5bf9a58653accac0310}} 
+\index{grille.h@{grille.h}!set\_vivante@{set\_vivante}}
+\index{set\_vivante@{set\_vivante}!grille.h@{grille.h}}
+\doxysubsubsection{\texorpdfstring{set\_vivante()}{set\_vivante()}}
+{\footnotesize\ttfamily static void set\+\_\+vivante (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Rend la cellule ( i , j ) de la grille g vivante (=1) 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em i} & Ligne de la cellule \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Colonne de la cellule \\
+\hline
+\mbox{\texttt{ out}}  & {\em g} & Grille \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+g \mbox{[} i \mbox{]}\mbox{[} j \mbox{]} = 1 
+\end{DoxyReturn}

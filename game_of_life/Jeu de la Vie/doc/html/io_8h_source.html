@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet - Game of Life:  Fichier source de include/io.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet - Game of Life
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">io.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="io_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef __IO_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define __IO_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="grille_8h.html">grille.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jeu_8h.html">jeu.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#if CAIRO</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;X11/Xlib.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;X11/Xutil.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;cairo.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cairo-xlib.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define SIZEX 760</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define SIZEY 760</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">extern</span> cairo_surface_t *<a class="code" href="io_8h.html#ab6245539322d8b432ba48cefbd4ef47f">cairo_create_x11_surface</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="io_8h.html#ab4b8cdb12d542c8d3f8239e48c4e1bc5">cairo_close_x11_surface</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#add4e81a0e0093173f5dc3d502f2e8bce">affiche_trait</a> (<span class="keywordtype">int</span> c, <span class="keywordtype">int</span> height, <span class="keywordtype">float</span> line);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#a50a45e1e668757cf99e42d430d3020d6">affiche_ligne</a> (<span class="keywordtype">int</span> c, <span class="keywordtype">int</span>* ligne, <span class="keywordtype">int</span> aging, <span class="keywordtype">int</span> height, <span class="keywordtype">float</span> line);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#a5d5f926ebda10daeb3c92a123011d3de">efface_grille</a> ();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#add4e81a0e0093173f5dc3d502f2e8bce">affiche_trait</a> (<span class="keywordtype">int</span> c);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#a50a45e1e668757cf99e42d430d3020d6">affiche_ligne</a> (<span class="keywordtype">int</span> c, <span class="keywordtype">int</span>* ligne, <span class="keywordtype">int</span> aging);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#a5d5f926ebda10daeb3c92a123011d3de">efface_grille</a> (<a class="code" href="structgrille.html">grille</a> g);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#a6dc8148587e5b31e45fee8cfc85929d4">affiche_grille</a> (<a class="code" href="structgrille.html">grille</a> g, <span class="keywordtype">int</span> timer, <span class="keywordtype">int</span> cycle, <span class="keywordtype">int</span> aging, <span class="keywordtype">int</span> swing, <span class="keywordtype">int</span> count);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">void</span> <a class="code" href="io_8h.html#a88493b3c55828670e47150a95ed7db5b">debut_jeu</a>(<a class="code" href="structgrille.html">grille</a> *g, <a class="code" href="structgrille.html">grille</a> *gc);</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aio_8h_html_ab6245539322d8b432ba48cefbd4ef47f"><div class="ttname"><a href="io_8h.html#ab6245539322d8b432ba48cefbd4ef47f">cairo_create_x11_surface</a></div><div class="ttdeci">cairo_surface_t * cairo_create_x11_surface(int x, int y)</div><div class="ttdoc">Création d'une surface Cairo avec X11.</div><div class="ttdef"><b>Definition:</b> io.c:22</div></div>
+<div class="ttc" id="ajeu_8h_html"><div class="ttname"><a href="jeu_8h.html">jeu.h</a></div><div class="ttdoc">Fonctions liée aux cellules.</div></div>
+<div class="ttc" id="aio_8h_html_ab4b8cdb12d542c8d3f8239e48c4e1bc5"><div class="ttname"><a href="io_8h.html#ab4b8cdb12d542c8d3f8239e48c4e1bc5">cairo_close_x11_surface</a></div><div class="ttdeci">void cairo_close_x11_surface()</div><div class="ttdoc">Destruction d'une surface Cairo avec X11.</div><div class="ttdef"><b>Definition:</b> io.c:49</div></div>
+<div class="ttc" id="aio_8h_html_add4e81a0e0093173f5dc3d502f2e8bce"><div class="ttname"><a href="io_8h.html#add4e81a0e0093173f5dc3d502f2e8bce">affiche_trait</a></div><div class="ttdeci">void affiche_trait(int c, int height, float line)</div><div class="ttdoc">Affichage d'un trait horizontal (MODE=CAIRO)</div><div class="ttdef"><b>Definition:</b> io.c:56</div></div>
+<div class="ttc" id="aio_8h_html_a50a45e1e668757cf99e42d430d3020d6"><div class="ttname"><a href="io_8h.html#a50a45e1e668757cf99e42d430d3020d6">affiche_ligne</a></div><div class="ttdeci">void affiche_ligne(int c, int *ligne, int aging, int height, float line)</div><div class="ttdoc">Affichage d'une ligne de la grille (MODE=CAIRO)</div><div class="ttdef"><b>Definition:</b> io.c:75</div></div>
+<div class="ttc" id="aio_8h_html_a88493b3c55828670e47150a95ed7db5b"><div class="ttname"><a href="io_8h.html#a88493b3c55828670e47150a95ed7db5b">debut_jeu</a></div><div class="ttdeci">void debut_jeu(grille *g, grille *gc)</div><div class="ttdoc">Debute le jeu.</div><div class="ttdef"><b>Definition:</b> io.c:483</div></div>
+<div class="ttc" id="astructgrille_html"><div class="ttname"><a href="structgrille.html">grille</a></div><div class="ttdoc">Création d'une grille de &quot;nbl&quot; lignes et &quot;nbc&quot; colonnes.</div><div class="ttdef"><b>Definition:</b> grille.h:18</div></div>
+<div class="ttc" id="agrille_8h_html"><div class="ttname"><a href="grille_8h.html">grille.h</a></div><div class="ttdoc">Fonctions liée aux grilles.</div></div>
+<div class="ttc" id="aio_8h_html_a5d5f926ebda10daeb3c92a123011d3de"><div class="ttname"><a href="io_8h.html#a5d5f926ebda10daeb3c92a123011d3de">efface_grille</a></div><div class="ttdeci">void efface_grille()</div><div class="ttdoc">Effacement de la grille (MODE=CAIRO)</div><div class="ttdef"><b>Definition:</b> io.c:214</div></div>
+<div class="ttc" id="aio_8h_html_a6dc8148587e5b31e45fee8cfc85929d4"><div class="ttname"><a href="io_8h.html#a6dc8148587e5b31e45fee8cfc85929d4">affiche_grille</a></div><div class="ttdeci">void affiche_grille(grille g, int timer, int cycle, int aging, int swing, int count)</div><div class="ttdoc">Affichage d'une grille.</div><div class="ttdef"><b>Definition:</b> io.c:452</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

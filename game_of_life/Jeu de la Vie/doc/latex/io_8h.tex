@@ -1,0 +1,196 @@
+\hypertarget{io_8h}{}\doxysection{Référence du fichier include/io.h}
+\label{io_8h}\index{include/io.h@{include/io.h}}
+
+
+Entrées et sorties du programme.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+cairo\+\_\+surface\+\_\+t $\ast$ \mbox{\hyperlink{io_8h_ab6245539322d8b432ba48cefbd4ef47f}{cairo\+\_\+create\+\_\+x11\+\_\+surface}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Création d\textquotesingle{}une surface Cairo avec X11. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{io_8h_ab4b8cdb12d542c8d3f8239e48c4e1bc5}\label{io_8h_ab4b8cdb12d542c8d3f8239e48c4e1bc5}} 
+void \mbox{\hyperlink{io_8h_ab4b8cdb12d542c8d3f8239e48c4e1bc5}{cairo\+\_\+close\+\_\+x11\+\_\+surface}} ()
+\begin{DoxyCompactList}\small\item\em Destruction d\textquotesingle{}une surface Cairo avec X11. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_add4e81a0e0093173f5dc3d502f2e8bce}{affiche\+\_\+trait}} (int c, int height, float line)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}un trait horizontal (M\+O\+DE=C\+A\+I\+RO) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_a50a45e1e668757cf99e42d430d3020d6}{affiche\+\_\+ligne}} (int c, int $\ast$ligne, int aging, int height, float line)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}une ligne de la grille (M\+O\+DE=C\+A\+I\+RO) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{io_8h_a5d5f926ebda10daeb3c92a123011d3de}\label{io_8h_a5d5f926ebda10daeb3c92a123011d3de}} 
+void \mbox{\hyperlink{io_8h_a5d5f926ebda10daeb3c92a123011d3de}{efface\+\_\+grille}} ()
+\begin{DoxyCompactList}\small\item\em Effacement de la grille (M\+O\+DE=C\+A\+I\+RO) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_a634cf584c380ce221d5d4199f3e813bd}{affiche\+\_\+trait}} (int c)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}un trait horizontal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_ace3c106f483b536e35bb0c7a40536794}{affiche\+\_\+ligne}} (int c, int $\ast$ligne, int aging)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}une ligne de la grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_ab36a6f8957cd3e682119007836ce6ad5}{efface\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} g)
+\begin{DoxyCompactList}\small\item\em Effacement d\textquotesingle{}une grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_a6dc8148587e5b31e45fee8cfc85929d4}{affiche\+\_\+grille}} (\mbox{\hyperlink{structgrille}{grille}} g, int timer, int cycle, int aging, int swing, int count)
+\begin{DoxyCompactList}\small\item\em Affichage d\textquotesingle{}une grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{io_8h_a88493b3c55828670e47150a95ed7db5b}{debut\+\_\+jeu}} (\mbox{\hyperlink{structgrille}{grille}} $\ast$g, \mbox{\hyperlink{structgrille}{grille}} $\ast$gc)
+\begin{DoxyCompactList}\small\item\em Debute le jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Entrées et sorties du programme. 
+
+\begin{DoxyVersion}{Version}
+5.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31 mars 2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{io_8h_a6dc8148587e5b31e45fee8cfc85929d4}\label{io_8h_a6dc8148587e5b31e45fee8cfc85929d4}} 
+\index{io.h@{io.h}!affiche\_grille@{affiche\_grille}}
+\index{affiche\_grille@{affiche\_grille}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_grille()}{affiche\_grille()}}
+{\footnotesize\ttfamily void affiche\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g,  }\item[{int}]{timer,  }\item[{int}]{cycle,  }\item[{int}]{aging,  }\item[{int}]{swing,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}une grille. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em g} & Grille \\
+\hline
+\mbox{\texttt{ in}}  & {\em timer} & Indique le nombre d\textquotesingle{}étapes \\
+\hline
+\mbox{\texttt{ in}}  & {\em cycle} & Indique le mode cycle demandé \\
+\hline
+\mbox{\texttt{ in}}  & {\em aging} & Indique le mode vieillisement demandé \\
+\hline
+\mbox{\texttt{ in}}  & {\em swing} & Indique le début de l\textquotesingle{}oscillation \\
+\hline
+\mbox{\texttt{ in}}  & {\em swing} & Indique la fin de l\textquotesingle{}oscillation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_ace3c106f483b536e35bb0c7a40536794}\label{io_8h_ace3c106f483b536e35bb0c7a40536794}} 
+\index{io.h@{io.h}!affiche\_ligne@{affiche\_ligne}}
+\index{affiche\_ligne@{affiche\_ligne}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_ligne()}{affiche\_ligne()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void affiche\+\_\+ligne (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int $\ast$}]{ligne,  }\item[{int}]{aging }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}une ligne de la grille. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em c} & Nombre de la cellules dans la ligne \\
+\hline
+\mbox{\texttt{ in}}  & {\em ligne} & Tableau qui indique si chaque cellule est morte \\
+\hline
+\mbox{\texttt{ in}}  & {\em aging} & Si true, alors affiche l\textquotesingle{}age de la cellule, sinon 0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_a50a45e1e668757cf99e42d430d3020d6}\label{io_8h_a50a45e1e668757cf99e42d430d3020d6}} 
+\index{io.h@{io.h}!affiche\_ligne@{affiche\_ligne}}
+\index{affiche\_ligne@{affiche\_ligne}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_ligne()}{affiche\_ligne()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void affiche\+\_\+ligne (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int $\ast$}]{ligne,  }\item[{int}]{aging,  }\item[{int}]{height,  }\item[{float}]{line }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}une ligne de la grille (M\+O\+DE=C\+A\+I\+RO) 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em c} & Nombre de cellules de la ligne \\
+\hline
+\mbox{\texttt{ in}}  & {\em ligne} & Tableau qui indique l\textquotesingle{}état de chaque cellule (vivante ou morte) \\
+\hline
+\mbox{\texttt{ in}}  & {\em aging} & Indique si le vieillissement est activé ou désactivé \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Hauteur du trait \\
+\hline
+\mbox{\texttt{ in}}  & {\em line} & Hauteur de la ligne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_a634cf584c380ce221d5d4199f3e813bd}\label{io_8h_a634cf584c380ce221d5d4199f3e813bd}} 
+\index{io.h@{io.h}!affiche\_trait@{affiche\_trait}}
+\index{affiche\_trait@{affiche\_trait}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_trait()}{affiche\_trait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void affiche\+\_\+trait (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}un trait horizontal. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em c} & Nombre de cellules dans la colonne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_add4e81a0e0093173f5dc3d502f2e8bce}\label{io_8h_add4e81a0e0093173f5dc3d502f2e8bce}} 
+\index{io.h@{io.h}!affiche\_trait@{affiche\_trait}}
+\index{affiche\_trait@{affiche\_trait}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{affiche\_trait()}{affiche\_trait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void affiche\+\_\+trait (\begin{DoxyParamCaption}\item[{int}]{c,  }\item[{int}]{height,  }\item[{float}]{line }\end{DoxyParamCaption})}
+
+
+
+Affichage d\textquotesingle{}un trait horizontal (M\+O\+DE=C\+A\+I\+RO) 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em c} & Nombre de cellules du trait \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Hauteur du trait \\
+\hline
+\mbox{\texttt{ in}}  & {\em line} & Hauteur de la ligne \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_ab6245539322d8b432ba48cefbd4ef47f}\label{io_8h_ab6245539322d8b432ba48cefbd4ef47f}} 
+\index{io.h@{io.h}!cairo\_create\_x11\_surface@{cairo\_create\_x11\_surface}}
+\index{cairo\_create\_x11\_surface@{cairo\_create\_x11\_surface}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{cairo\_create\_x11\_surface()}{cairo\_create\_x11\_surface()}}
+{\footnotesize\ttfamily cairo\+\_\+surface\+\_\+t$\ast$ cairo\+\_\+create\+\_\+x11\+\_\+surface (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Création d\textquotesingle{}une surface Cairo avec X11. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em x} & Largeur de la surface \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Hauteur de la surface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_a88493b3c55828670e47150a95ed7db5b}\label{io_8h_a88493b3c55828670e47150a95ed7db5b}} 
+\index{io.h@{io.h}!debut\_jeu@{debut\_jeu}}
+\index{debut\_jeu@{debut\_jeu}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{debut\_jeu()}{debut\_jeu()}}
+{\footnotesize\ttfamily void debut\+\_\+jeu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{g,  }\item[{\mbox{\hyperlink{structgrille}{grille}} $\ast$}]{gc }\end{DoxyParamCaption})}
+
+
+
+Debute le jeu. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in,out}}  & {\em g} & Pointeur sur la grille principale \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em gc} & Pointeur sur une seconde grille de même paramètres \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{io_8h_ab36a6f8957cd3e682119007836ce6ad5}\label{io_8h_ab36a6f8957cd3e682119007836ce6ad5}} 
+\index{io.h@{io.h}!efface\_grille@{efface\_grille}}
+\index{efface\_grille@{efface\_grille}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{efface\_grille()}{efface\_grille()}}
+{\footnotesize\ttfamily void efface\+\_\+grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structgrille}{grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Effacement d\textquotesingle{}une grille. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em g} & Grille à effacer \\
+\hline
+\end{DoxyParams}
