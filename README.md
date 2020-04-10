@@ -7,10 +7,8 @@ Voici la réalisation de mes projets lors de la Licence Informatique.
 __________
 
 Les projets sont réparti dans différents dossiers :
-- calculatrice ===> Calculatrice en assembleur MIPS (Architecture L2 S3)
-- game_of_life ===> Jeu de la vie de Conway en C ( Techniques de développement L2 S3 ) :
-            - /S3 Automne : => Projet réalisé lors du S3 Automne
-            - /Jeu de la Vie : => Projet réalisé lors du S3 Printemps (meilleure version)
-- site soiree etudiant ===> Site type "leboncoin" pour des soirées étudiantes
-
+- calculatrice ===> Calculatrice (assembleur MIPS)
+- game_of_life/Jeu de la Vie ===> Jeu de la vie de Conway , deuxième version (C)
+- site soiree etudiant ===> Site pour des soirées étudiantes (HTML-CSS-JS-PHP)
+- bataille ===> Jeu de carte "Bataille" (JAVA)
         
