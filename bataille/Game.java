@@ -10,7 +10,10 @@ public class Game {
 		for ( int test = 0; test < nb_tests; test++) {
 			
 			Paquet paquet = new Paquet();
-			paquet.shuffle();
+			
+			for(int i=0; i<1000; i++) {
+				paquet.shuffle();
+			}
 		
 			Main joueur1 = new Main("Matthieu", paquet.getPaquet(), 0);
 			Main joueur2 = new Main("Ordi", paquet.getPaquet(), 1);
