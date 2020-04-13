@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Point;
@@ -18,13 +19,17 @@ public class Window extends JPanel implements KeyListener{
 	private static final long serialVersionUID = 1L;
 	private int cell_width = 20, cell_height = 20, cell = 30;
 	
-	private int run = 1;
+	private boolean run = true;
 	private boolean pause = false;
 	private boolean restart = false;
+	private boolean first = true;
 	
+	public JButton start_button = new JButton("START");
 	public JButton restart_button = new JButton("RESTART");
 	public JButton resume_button = new JButton("RESUME");
 	public JButton quit_button = new JButton("QUIT GAME");
+	
+	public Chrono chrono;
 	
 	private int size;
 	private int direction;
@@ -37,7 +42,6 @@ public class Window extends JPanel implements KeyListener{
 			
 			remove(restart_button);
 			remove(resume_button);
-			remove(quit_button);
 			
 			if(!pause)
 				tick();
@@ -50,8 +54,7 @@ public class Window extends JPanel implements KeyListener{
 	});
 
 	public Window() {
-		start();
-		loop.start();
+		repaint();
 	}
 	
 	private void start() {
@@ -60,8 +63,10 @@ public class Window extends JPanel implements KeyListener{
 		snake.add(new Point(cell_width/2, cell_height/2));
 		apple = randApple();
 		direction = 0;
-		run = 1;
+		run = true;
 		restart = false;
+		first = false;
+		chrono = new Chrono();
 	}
 	
 	private Point randApple() {
@@ -69,8 +74,8 @@ public class Window extends JPanel implements KeyListener{
 		
 		looper:
 		while(temp == null) {
-			int x = (int)(Math.random()*cell_width);
-			int y = (int)(Math.random()*cell_height);
+			int x = new Random().nextInt(cell_width);
+			int y = new Random().nextInt((cell_height + 1) - 2 + 1) + 2;
 			
 			for(int i = 0; i < size; i++) {
 				if(snake.get(i).x == x && snake.get(i).y == y)
@@ -113,12 +118,12 @@ public class Window extends JPanel implements KeyListener{
 			apple = randApple();
 		}
 		
-		if(snake.get(0).x > cell_width -1 || snake.get(0).x < 0 || snake.get(0).y > cell_height -1 || snake.get(0).y < 0)
-			run = 2;
+		if(snake.get(0).x > cell_width - 1 || snake.get(0).x < 0 || snake.get(0).y > cell_height + 1 || snake.get(0).y < 2)
+			run = false;
 		
 		for(int i = 2; i < size; i++) {
 			if(snake.get(0).x == snake.get(i).x && snake.get(0).y == snake.get(i).y) {
-				run = 2;
+				run = false;
 				break;
 			}
 		}
@@ -133,84 +138,95 @@ public class Window extends JPanel implements KeyListener{
 		g2d.setStroke(new BasicStroke(2));
 		g2d.fillRect(0, 0, Frame.WIDTH, Frame.HEIGHT);
 		
-		if (pause) {
+		Font font = new Font("Serif", Font.PLAIN, 30); 
+		g2d.setFont(font);
+		g2d.setColor(Color.WHITE);
+		
+		quit_button.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {
+		    	  loop.stop();
+		    	  System.exit(0);
+		      }
+		    });
+		quit_button.setBounds(200,260,200, 40);
+		add(quit_button);
+		
+		if (first) {
 			
-			Font font = new Font("Serif", Font.PLAIN, 50); 
+			font = new Font("Serif", Font.PLAIN, 50); 
 			g2d.setFont(font);
+			g2d.drawString("START",220,150);
 			
-			g2d.setColor(Color.WHITE);
-			g2d.drawString("PAUSED",200,100);
-			
-			font = new Font("Serif", Font.PLAIN, 30); 
-			g2d.setFont(font);
-			
-			resume_button.addActionListener(new ActionListener() {
+			start_button.addActionListener(new ActionListener() {
 			      public void actionPerformed(ActionEvent e) {
-			    	  pause = false;
+			    	  remove(start_button);
+			    	  start();
+			    	  loop.start();
 			      }
 			    });
-			
-			quit_button.addActionListener(new ActionListener() {
-			      public void actionPerformed(ActionEvent e) {
-			    	  loop.stop();
-			    	  System.exit(0);
-			      }
-			    });
-			
-			resume_button.setBounds(200,220,200, 40); 
-			quit_button.setBounds(200,260,200, 40);
-			
-			add(resume_button);
-			add(quit_button);  
-			
-		} else if (run == 1) {
-			
-			for(int i = 0; i < cell_width; i++)
-				for(int j = 0; j < cell_height; j++)
-					g.drawRect(i*cell, j*cell, cell, cell);
-			
-			g2d.setColor(Color.RED);
-			g2d.fillRect(apple.x*cell, apple.y*cell, cell, cell);
-			
-			g2d.setColor(Color.GREEN);
-			g2d.fillRect(snake.get(0).x*cell, snake.get(0).y*cell, cell, cell);
-			
-			g2d.setColor(Color.YELLOW);
-			for(int i = 1; i < size; i++)
-				g2d.fillRect(snake.get(i).x*cell, snake.get(i).y*cell, cell, cell);
+			start_button.setBounds(200,220,200, 40);
+			add(start_button);  
 			
 		} else {
+		
+			g2d.drawString("" + size, 550, 40);
+			g2d.drawString("Snake",260,40);
 			
-			Font font = new Font("Serif", Font.PLAIN, 50); 
+			if(run && !pause) {
+				chrono.chronoUpdate();
+			}
+			
+			g2d.drawString(""+ chrono.getChronoString(),20,40);
+			
+			font = new Font("Serif", Font.PLAIN, 50); 
 			g2d.setFont(font);
+		
+			if (pause) {
+				
+				g2d.drawString("PAUSED",200,150);
+				
+				resume_button.addActionListener(new ActionListener() {
+				      public void actionPerformed(ActionEvent e) {
+				    	  pause = false;
+				    	  chrono.chronoResume();
+				      }
+				    });
+				resume_button.setBounds(200,220,200, 40); 
+				add(resume_button);
+				
+			} else if (run) {
 			
-			g2d.setColor(Color.WHITE);
-			g2d.drawString("YOU DIED",180,100);
+				remove(quit_button);
+				g2d.drawLine(0, 59, 600, 59);
+				
+				g2d.setColor(Color.BLACK);
+				for(int i = 0; i < cell_width; i++)
+					for(int j = 2; j < cell_height + 2; j++)
+						g2d.drawRect(i*cell, j*cell, cell, cell);
+				
+				g2d.setColor(Color.RED);
+				g2d.fillRect(apple.x*cell, apple.y*cell, cell, cell);
+				
+				g2d.setColor(Color.GREEN);
+				g2d.fillRect(snake.get(0).x*cell, snake.get(0).y*cell, cell, cell);
+				
+				g2d.setColor(Color.YELLOW);
+				for(int i = 1; i < size; i++)
+					g2d.fillRect(snake.get(i).x*cell, snake.get(i).y*cell, cell, cell);
+				
+			} else {
 			
-			font = new Font("Serif", Font.PLAIN, 30); 
-			g2d.setFont(font);
-			
-			g2d.drawString("Size = " + size,250,130);
-			
-			restart_button.addActionListener(new ActionListener() {
-			      public void actionPerformed(ActionEvent e) {
-			    	  restart = true;
-			    	  run = 1;
-			      }
-			    });
-			
-			quit_button.addActionListener(new ActionListener() {
-			      public void actionPerformed(ActionEvent e) {
-			    	  loop.stop();
-			    	  System.exit(0);
-			      }
-			    });
-			
-			restart_button.setBounds(200,220,200, 40); 
-			quit_button.setBounds(200,260,200, 40);
-			
-			add(restart_button);
-			add(quit_button);   
+				g2d.drawString("YOU DIED",180,150);
+				
+				restart_button.addActionListener(new ActionListener() {
+				      public void actionPerformed(ActionEvent e) {
+				    	  restart = true;
+				    	  run = true;
+				      }
+				    });
+				restart_button.setBounds(200,220,200, 40); 
+				add(restart_button);
+			}
 		}
 				
 	}
@@ -225,37 +241,48 @@ public class Window extends JPanel implements KeyListener{
 			case KeyEvent.VK_UP:
 			case KeyEvent.VK_Z:
 				if (direction == 1)
-					run = 2;
+					run = false;
 				direction = 0;
 				break;
 				
 			case KeyEvent.VK_DOWN:
 			case KeyEvent.VK_S:
 				if (direction == 0)
-					run = 2;
+					run = false;
 				direction = 1;
 				break;
 				
 			case KeyEvent.VK_RIGHT:
 			case KeyEvent.VK_D:
 				if (direction == 3)
-					run = 2;
+					run = false;
 				direction = 2;
 				break;
 				
 			case KeyEvent.VK_LEFT:
 			case KeyEvent.VK_Q:
 				if (direction == 2)
-					run = 2;
+					run = false;
 				direction = 3;
 				break;
 				
 			case KeyEvent.VK_SPACE:
 			case KeyEvent.VK_ESCAPE:
-				if(pause == false) {
-					pause = true;
-				} else {
-					pause = false;
+				if (run) {
+					if(pause) {
+						pause = false;
+						chrono.chronoResume();
+					} else {
+						pause = true;
+						chrono.chronoPause();
+					}
+				}
+				break;
+			
+			case KeyEvent.VK_R:
+				if (!run) {
+					restart = true;
+					run = true;
 				}
 				break;
 		}

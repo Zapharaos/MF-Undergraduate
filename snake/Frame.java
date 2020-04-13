@@ -2,7 +2,7 @@ import javax.swing.JFrame;
 
 public class Frame {
 	
-	public static final int WIDTH = 600, HEIGHT = 622;
+	public static final int WIDTH = 600, HEIGHT = 683;
 	
 	public Frame() {
 		
