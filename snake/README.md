@@ -6,7 +6,7 @@ Voici le jeu "Snake" réalisé en JAVA.
 ### Le but du jeu :
 ____________
 
-- L'objectif est de manger le plus de pommes possible. Vous pouvez voir votre score en haut à droite de la fenêtre et le chronomètre se trouve en haut à gauche.
+- L'objectif est de manger le plus de pommes possible. Vous pouvez voir votre score en haut à droite de la fenêtre, votre record au centre et le chronomètre en haut à gauche.
 
 - Attention : si vous percutez les bords ou un morceau de votre queue, c'est perdu.
 

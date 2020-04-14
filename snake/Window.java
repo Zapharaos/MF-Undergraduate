@@ -8,6 +8,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.awt.Point;
 
 import javax.swing.JButton;
@@ -30,8 +36,10 @@ public class Window extends JPanel implements KeyListener{
 	public JButton quit_button = new JButton("QUIT GAME");
 	
 	public Chrono chrono;
-	
+	private String path = "highscore.txt";
+	private int highscore = 0;
 	private int size;
+	
 	private int direction;
 	private ArrayList<Point> snake = new ArrayList<Point>();
 	private Point apple;
@@ -58,15 +66,50 @@ public class Window extends JPanel implements KeyListener{
 	}
 	
 	private void start() {
+		
 		snake.clear();
 		size = 1;
 		snake.add(new Point(cell_width/2, cell_height/2));
 		apple = randApple();
 		direction = 0;
+		
 		run = true;
 		restart = false;
 		first = false;
 		chrono = new Chrono();
+		
+		highscore = 0;
+		File file = new File(path);
+
+		try {
+	        BufferedReader reader = new BufferedReader(new FileReader(file));
+	        String strScore = reader.readLine();
+	        
+	        if (strScore.length() != 0)
+	        	highscore = Integer.parseInt(strScore.trim());
+	        
+	        reader.close();
+
+	    } catch (IOException ex) {
+	        System.err.println("ERROR reading scores from file");
+	    }
+	}
+	
+	public void lost() {
+		run = false;
+		
+		if (size > highscore) {
+			
+			highscore = size;
+			
+			try {
+		        BufferedWriter output = new BufferedWriter(new FileWriter(path, false));
+		        output.append("" + highscore);
+		        output.close(); 
+		    } catch (IOException ex1) {
+		        System.out.printf("ERROR writing highscore to file: %s\n", ex1);
+		    }
+		}
 	}
 	
 	private Point randApple() {
@@ -119,11 +162,12 @@ public class Window extends JPanel implements KeyListener{
 		}
 		
 		if(snake.get(0).x > cell_width - 1 || snake.get(0).x < 0 || snake.get(0).y > cell_height + 1 || snake.get(0).y < 2)
-			run = false;
+			lost();
+		
 		
 		for(int i = 2; i < size; i++) {
 			if(snake.get(0).x == snake.get(i).x && snake.get(0).y == snake.get(i).y) {
-				run = false;
+				lost();
 				break;
 			}
 		}
@@ -168,9 +212,9 @@ public class Window extends JPanel implements KeyListener{
 			add(start_button);  
 			
 		} else {
-		
+			
 			g2d.drawString("" + size, 550, 40);
-			g2d.drawString("Snake",260,40);
+			g2d.drawString("Best : " + highscore,250,40);
 			
 			if(run && !pause) {
 				chrono.chronoUpdate();
@@ -241,28 +285,28 @@ public class Window extends JPanel implements KeyListener{
 			case KeyEvent.VK_UP:
 			case KeyEvent.VK_Z:
 				if (direction == 1)
-					run = false;
+					lost();
 				direction = 0;
 				break;
 				
 			case KeyEvent.VK_DOWN:
 			case KeyEvent.VK_S:
 				if (direction == 0)
-					run = false;
+					lost();
 				direction = 1;
 				break;
 				
 			case KeyEvent.VK_RIGHT:
 			case KeyEvent.VK_D:
 				if (direction == 3)
-					run = false;
+					lost();
 				direction = 2;
 				break;
 				
 			case KeyEvent.VK_LEFT:
 			case KeyEvent.VK_Q:
 				if (direction == 2)
-					run = false;
+					lost();
 				direction = 3;
 				break;
 				
