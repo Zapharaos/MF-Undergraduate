@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="assets/CSS/base.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/details.css">
     <link rel="stylesheet" type="text/css" href="assets/CSS/profil.css">
+    <link rel="stylesheet" href="awesomplete-gh-pages/awesomplete.css" />
 
     <!-- INCLUDE FONT_AWESOME -->
     <script src="https://kit.fontawesome.com/439e85da3f.js" crossorigin="anonymous"></script>
-
 
     <!-- INCLUDE BOOTSTRAP -->
     <!-- Latest compiled and minified CSS -->
@@ -54,4 +54,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="awesomplete-gh-pages/awesomplete.js" async></script>
+
 </head>

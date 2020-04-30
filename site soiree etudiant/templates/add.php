@@ -1,3 +1,5 @@
+
+
 <section id="add">
     <form action="" method="POST">
         <div>
@@ -16,7 +18,7 @@
             </div>
             <div>
                 <label data-mlr-text>Ville :</label>
-                <input type="text" name="add_ville" value="<?php echo $_POST['ville']?>" required>
+                <input type="text" id="citySearch" name="add_ville" value="<?php echo $_POST['ville']?>" required>
             </div>
             <div>
                 <label data-mlr-text>Adresse :</label>
@@ -49,3 +51,22 @@
         <button class="bouton" name="add_btn" data-mlr-text>Créer une soirée</button>
     </form>
 </section>
+
+<script>
+    var villes = new Array();
+
+    const capitalize = (s) => {
+        if (typeof s !== 'string') return ''
+            return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
+    }
+
+    $(document).ready(function () {
+        $.getJSON('../assets/api/france.json', function(data) {
+            $.each(data, function(key, value){
+                   villes.push(capitalize(value['Nom_commune']));
+            });
+        });
+        var input = document.getElementById("citySearch");
+        new Awesomplete(input, { list: villes, minChars: 3, maxItems: 5});
+    });
+</script>
