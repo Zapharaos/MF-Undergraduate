@@ -1,11 +1,11 @@
 <section id="base">
     <div>
         <?php
+            // if the user wants to see histo, we hide the select menu
             if (!empty($_GET['histo'])) {
                 echo '<!--';
             }
         ?>
-
         <div>
             <label for="order" data-mlr-text>Trier par :</label>
             <select name="order" id="order">
@@ -20,13 +20,13 @@
                 ?>
             </select>
         </div>
-
         <?php
             if (!empty($_GET['histo'])) {
                 echo '-->';
             }
 
             echo "<script> $('#order').val(\"".$_GET['order']."\");</script>";
+            // end if
         ?> 
 
         <form id="search" method="POST">
@@ -41,62 +41,134 @@
             $id = $_SESSION['Auth']['id'];
             $current_date = date('Y-m-d H:i:s');
 
-            if(isset($_REQUEST['search_btn'])) {
+            if(isset($_REQUEST['search_btn'])) { // selecting party for this search
+                
                 $search = htmlspecialchars($_POST['search']);
-                $party = "WHERE nom LIKE '" . $search . "' OR
-                    city LIKE '" . $search . "' OR
-                    adress LIKE '" . $search . "' OR
-                    org LIKE '" . $search ."';";
-            } else if ($_GET['order'] === "me") {
-                $party = "WHERE user_id='".$id."';";
-            } else if ($_GET['order'] === "fav") {
-                $tempo_query = "SELECT * FROM fav WHERE user_id='".$id."';";
-                $party = "WHERE ";
-                $or = " OR ";
-                $first = true;
+                
+                // counting the number of rows
+                $query = 'SELECT COUNT(id) FROM party WHERE nom LIKE :search OR city LIKE :search OR adress LIKE :search OR org LIKE :search';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':search', $search);
+                $prep->execute();
+                $rows = $prep->fetchColumn();
+                
+                // selecting party for this search
+                $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party WHERE nom LIKE :search OR city LIKE :search OR adress LIKE :search OR org LIKE :search';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':search', $search);
+                $prep->execute();
+                
+            } else if ($_GET['order'] === "me") { // selecting party for this id
 
-                foreach ($db->query($tempo_query) as $row) {
-                    if ($first) {
-                        $party = $party . "id = '" . $row['party_id'] . "'";
-                        $first = false;
-                    } else {
-                        $party = $party . $or . "id = '" . $row['party_id'] . "'";
-                    }
-                }
+                // counting the number of rows
+                $query = 'SELECT COUNT(id) FROM party WHERE user=:uid';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':uid', $id);
+                $prep->execute();
+                $rows = $prep->fetchColumn();
+                
+                // selecting party for this id
+                $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party WHERE user=:uid';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':uid', $id);
+                $prep->execute();
+                
+            } else if ($_GET['order'] === "fav") { // selecting party in fav for this id
+                
+                // counting the number of rows
+                $query = 'SELECT COUNT(id) FROM party JOIN fav ON fav.party_id=party.id WHERE fav.user_id=:uid';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':uid', $id);
+                $prep->execute();
+                $rows = $prep->fetchColumn();
+                
+                // selecting party in fav for this id
+                $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party JOIN fav ON fav.party_id=party.id WHERE fav.user_id=:uid';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':uid', $id);
+                $prep->execute();
 
-            } else if ($_GET['order'] === "old") {
-                $party = "WHERE date < '".$current_date."';";
+            } else if ($_GET['order'] === "old") { // selecting party for this date (older)
+                
+                // counting the number of rows
+                $query = 'SELECT COUNT(id) FROM party WHERE date<=:date';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':date', $current_date);
+                $prep->execute();
+                $rows = $prep->fetchColumn();
+                
+                // selecting party for this date (older)
+                $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party WHERE date<=:date';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':date', $current_date);
+                $prep->execute();
+                
             } else if (!empty($_GET['histo'])) {
-                if (isset($_GET['org'])) {
-                    $party = "WHERE user_id = '" . $_GET['histo'] ."';";
+                if (isset($_GET['org'])) { // selecting party for this org
+                    
+                    // counting the number of rows
+                    $query = 'SELECT COUNT(id) FROM party WHERE user=:uid';
+                    $prep = $db->prepare($query);
+                    $prep->bindValue(':uid', $_GET['histo']);
+                    $prep->execute();
+                    $rows = $prep->fetchColumn();
+                    
+                    $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party WHERE user=:uid';
+                    $prep = $db->prepare($query);
+                    $prep->bindValue(':uid', $_GET['histo']);
+                    $prep->execute();
+                    
                 } else if (isset($_GET['part'])) {
-                    $tempo_query = "SELECT party_id FROM coming WHERE user_id = '" . $_GET['histo'] ."';";
-                    $party = "WHERE ";
-                    $or = " OR ";
-                    $first = true;
-
-                    foreach ($db->query($tempo_query) as $row) {
-                        if ($first) {
-                            $party = $party . "id = '" . $row['party_id'] . "'";
-                            $first = false;
-                        } else {
-                            $party = $party . $or . "id = '" . $row['party_id'] . "'";
-                        }
-                    }
+                    
+                    // counting the number of rows
+                    $query = 'SELECT COUNT(id) FROM party JOIN coming ON coming.party_id=party.id WHERE coming.user_id=:uid';
+                    $prep = $db->prepare($query);
+                    $prep->bindValue(':uid', $id);
+                    $prep->execute();
+                    $rows = $prep->fetchColumn();
+                    
+                    // selecting party in coming for this id
+                    $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party JOIN coming ON coming.party_id=party.id WHERE coming.user_id=:uid';
+                    $prep = $db->prepare($query);
+                    $prep->bindValue(':uid', $id);
+                    $prep->execute();
                 }
-            } else if ($_GET['order'] === "all") {
-                $party = ";";
-            } else {
-                $party = "WHERE date > '".$current_date."';";
+            } else if ($_GET['order'] === "all") { // selecting party for all
+                
+                // counting the number of rows
+                $query = 'SELECT COUNT(id) FROM party';
+                $prep = $db->prepare($query);
+                $prep->execute();
+                $rows = $prep->fetchColumn();
+                
+                // selecting party for all
+                $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party';
+                $prep = $db->prepare($query);
+                $prep->execute();
+                
+            } else { // selecting party for this date (newer)
+                
+                // counting the number of rows
+                $query = 'SELECT COUNT(id) FROM party WHERE date>:date';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':date', $current_date);
+                $prep->execute();
+                $rows = $prep->fetchColumn();
+                
+                // selecting party for this date (newer)
+                $query = 'SELECT id, nom, city, adress, price, slots, rest, male, female, other, org, user, description, date FROM party WHERE date>:date';
+                $prep = $db->prepare($query);
+                $prep->bindValue(':date', $current_date);
+                $prep->execute();
+                
             }
 
-            $query = "SELECT COUNT(*) FROM party " . $party;
-            $rows = $db->query($query)->fetch();
-            if ($rows[0] == 0) {
+            if ($rows[0] == 0) { // no rows -> no result
                 echo "<p data-mlr-text class=error>Aucun résultat</p>";
-            } else {
-                $party = "SELECT * FROM party " . $party;
-                foreach ($db->query($party) as $row) {
+            }
+            
+            else { // else
+                foreach ($prep->fetchAll() as $row) {
                     echo "
                         <li onmouseenter='show_details(this)' onmouseleave='close_details(this)'>
                             <div>
@@ -121,7 +193,7 @@
                                 </div>
                             </div>
                             <div class='about'>
-                                <a onclick=\"window.open('index.php?lang=".$lang_url."&show=profil&profil=".$row['user_id']."')\"
+                                <a onclick=\"window.open('index.php?lang=".$lang_url."&show=profil&profil=".$row['user']."')\"
                                     title=\"Lien qui emmène vers le profil de l'organisateur\" >
                                     " . $row['org'] . "</a>
                                 <p>" . $row['description'] . "</p>";

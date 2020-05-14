@@ -1,4 +1,5 @@
 <?php
+    // including every needed php files 
     include 'db.php';
     include 'session.php';
     include 'langue.php';
