@@ -1,0 +1,249 @@
++ test 5 -eq 0
++ for t in "$@"
++ declare -F test_1
++ test_1
++ debut_test 1 'Test du nombre d'\''arguments'
++ test -t 1
++ echo -n '[  ] '
++ echo -n '1. Test du nombre d'\''arguments'
++ mkdir tmp.UvS/empty
++ push_dir tmp.UvS/empty
++ pushd tmp.UvS/empty
++ ../../delegation
++ EXITCODE=6
++ test 6 -ne 6
++ ../../delegation un deux
++ EXITCODE=6
++ test 6 -ne 6
++ ../../delegation malarkey
++ EXITCODE=6
++ test 6 -ne 6
++ pop_dir
++ popd
++ rmdir tmp.UvS/empty
++ fin_test
++ test -t 1
++ echo -e '\r[\033[1;32mok\033[0m]'
++ for t in "$@"
++ declare -F test_2
++ test_2
++ debut_test 2 'Test de fonctionnalité'
++ test -t 1
++ echo -n '[  ] '
++ echo -n '2. Test de fonctionnalité'
++ mkdir tmp.UvS/test-20
++ touch tmp.UvS/test-20/fichier00.data tmp.UvS/test-20/fichier01.data tmp.UvS/test-20/fichier02.data tmp.UvS/test-20/fichier03.data tmp.UvS/test-20/fichier04.data tmp.UvS/test-20/fichier05.data tmp.UvS/test-20/fichier06.data tmp.UvS/test-20/fichier07.data tmp.UvS/test-20/fichier08.data tmp.UvS/test-20/fichier09.data tmp.UvS/test-20/fichier10.data tmp.UvS/test-20/fichier11.data tmp.UvS/test-20/fichier12.data tmp.UvS/test-20/fichier13.data tmp.UvS/test-20/fichier14.data tmp.UvS/test-20/fichier15.data tmp.UvS/test-20/fichier16.data tmp.UvS/test-20/fichier17.data tmp.UvS/test-20/fichier18.data tmp.UvS/test-20/fichier19.data
++ push_dir tmp.UvS/test-20
++ pushd tmp.UvS/test-20
++ echo -n ' '
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ for i in {0..9}
++ echo -n .
++ ../../delegation +fast
++ EXITCODE=0
++ test 0 -gt 1
++ verifier_statistiques ../std.out
++ awk '
+{if ($1=="COMMANDANT") { cs=$2; ce=$3; }
+else if ($1=="LIEUTENANT") { ls=$2; le=$3; }
+else exit 1; }
+END { exit (cs!=ls || ce!=le); }'
++ test 0 -ne 0
++ return 0
++ rm ../std.out
++ pop_dir
++ popd
++ rm -rf tmp.UvS/test-20
++ fin_test
++ test -t 1
++ echo -e '\r[\033[1;32mok\033[0m]'
++ for t in "$@"
++ declare -F test_3
++ test_3
++ test_31
+./test.sh: line 231: test_31: command not found
++ test_32
++ debut_test 32 'Test du code de retour sur crash de lieutenant'
++ test -t 1
++ echo -n '[  ] '
++ echo -n '32. Test du code de retour sur crash de lieutenant'
++ mkdir tmp.UvS/test-20
++ touch tmp.UvS/test-20/fichier00.data tmp.UvS/test-20/fichier01.data tmp.UvS/test-20/fichier02.data tmp.UvS/test-20/fichier03.data tmp.UvS/test-20/fichier04.data tmp.UvS/test-20/fichier05.data tmp.UvS/test-20/fichier06.data tmp.UvS/test-20/fichier07.data tmp.UvS/test-20/fichier08.data tmp.UvS/test-20/fichier09.data tmp.UvS/test-20/fichier10.data tmp.UvS/test-20/fichier11.data tmp.UvS/test-20/fichier12.data tmp.UvS/test-20/fichier13.data tmp.UvS/test-20/fichier14.data tmp.UvS/test-20/fichier15.data tmp.UvS/test-20/fichier16.data tmp.UvS/test-20/fichier17.data tmp.UvS/test-20/fichier18.data tmp.UvS/test-20/fichier19.data
++ push_dir tmp.UvS/test-20
++ pushd tmp.UvS/test-20
++ ../../delegation -fast
++ EXITCODE=3
++ test 3 -ne 3
++ pop_dir
++ popd
++ rm -rf tmp.UvS/test-20
++ fin_test
++ test -t 1
++ echo -e '\r[\033[1;32mok\033[0m]'
++ test_33
++ debut_test 33 'Test du code de retour sur réception de SIGTERM'
++ test -t 1
++ echo -n '[  ] '
++ echo -n '33. Test du code de retour sur réception de SIGTERM'
++ mkdir tmp.UvS/test-20
++ touch tmp.UvS/test-20/fichier00.data tmp.UvS/test-20/fichier01.data tmp.UvS/test-20/fichier02.data tmp.UvS/test-20/fichier03.data tmp.UvS/test-20/fichier04.data tmp.UvS/test-20/fichier05.data tmp.UvS/test-20/fichier06.data tmp.UvS/test-20/fichier07.data tmp.UvS/test-20/fichier08.data tmp.UvS/test-20/fichier09.data tmp.UvS/test-20/fichier10.data tmp.UvS/test-20/fichier11.data tmp.UvS/test-20/fichier12.data tmp.UvS/test-20/fichier13.data tmp.UvS/test-20/fichier14.data tmp.UvS/test-20/fichier15.data tmp.UvS/test-20/fichier16.data tmp.UvS/test-20/fichier17.data tmp.UvS/test-20/fichier18.data tmp.UvS/test-20/fichier19.data
++ push_dir tmp.UvS/test-20
++ pushd tmp.UvS/test-20
++ PID=2051
++ sleep 3
++ ../../delegation +slow
++ kill -TERM 2051
++ wait 2051
++ EXITCODE=4
++ test 4 -ne 4
++ pop_dir
++ popd
++ rm -rf tmp.UvS/test-20
++ fin_test
++ test -t 1
++ echo -e '\r[\033[1;32mok\033[0m]'
++ test_34
++ debut_test 34 'Test du code de retour sur répertoire illisible'
++ test -t 1
++ echo -n '[  ] '
++ echo -n '34. Test du code de retour sur répertoire illisible'
++ mkdir tmp.UvS/empty
++ chmod -r tmp.UvS/empty
++ push_dir tmp.UvS/empty
++ pushd tmp.UvS/empty
++ ../../delegation +slow
++ EXITCODE=0
++ test 0 -ne 7
++ fail 'Exit 0 au lieu de 4'
++ test -t 1
++ echo -e '\r[\033[1;31mko\033[0m]'
++ echo '==> Échec : '\''Exit 0 au lieu de 4'\''.'
++ echo '==> Log : '\''test.log'\''.'
++ echo '==> Exit'
++ rm -rf tmp.UvS
++ exit 1

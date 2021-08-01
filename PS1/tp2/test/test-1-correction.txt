@@ -1,0 +1,2 @@
+Argument manquant
+Usage: ./explore <chemin d'un dossier>

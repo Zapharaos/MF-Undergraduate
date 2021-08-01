@@ -1,0 +1,2 @@
+Trop d'argument
+Usage: ./explore <chemin d'un dossier>

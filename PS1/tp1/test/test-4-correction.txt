@@ -1,0 +1,19 @@
+./test/test-4/documents/fichier1.zip    	    24 octets	ZIP
+./test/test-4/documents/fichier2.7z     	    21 octets	7z
+./test/test-4/documents/f/fichierzip.pdf	    24 octets	ZIP
+./test/test-4/documents/f/fichier8.vide 	     1 octets	Format inconnu
+./test/test-4/documents/f/fichier6.toto 	    24 octets	Format inconnu
+./test/test-4/documents/f/fichier7.vide 	     0 octets	Format inconnu
+./test/test-4/documents/f/fichiermp3.pdf	    24 octets	MP3
+./test/test-4/documents/fichier5.mp3    	    15 octets	Format inconnu
+./test/test-4/documents/fichier3.pdf    	    25 octets	PDF
+./test/test-4/documents/fichier4.pdf    	    15 octets	PDF
+./test/test-4/photos/fichier2.tiff      	    21 octets	TIFF (little endian)
+./test/test-4/photos/fichier3.tiff      	    21 octets	TIFF (big endian)
+./test/test-4/photos/fichier1.tiff      	    21 octets	TIFF (little endian)
+./test/test-4/b/c/d/musiques/fichier1.mp3	    24 octets	MP3
+./test/test-4/b/c/d/musiques/fichier2.mp3	    24 octets	MP3
+./test/test-4/e/g/scripts/fichier2.php  	    17 octets	#!/usr/bin/php
+./test/test-4/e/g/scripts/fichier1.php  	    19 octets	#!/bin/env php
+./test/test-4/e/g/scripts/fichier3.sh   	    10 octets	#!/bin/sh
+./test/test-4/e/g/scripts/fichier4.sh   	    11 octets	#!/bin/bash
