@@ -12,4 +12,6 @@ Les projets sont réparti dans différents dossiers :
 - site soiree etudiant ===> Site pour des soirées étudiantes (HTML-CSS-JS-PHP)
 - bataille ===> Jeu de carte "Bataille" (JAVA)
 - snake ===> Jeu "Snake" (JAVA)
+- programmation systeme ===> PS1 (C)
+- detecteur de langue ===> https://github.com/Zapharaos/ProjetSDA2 (C)
         
